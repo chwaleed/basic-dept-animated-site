@@ -1,3 +1,46 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  background-image: url("../assets/noice.png");
+  background-repeat: repeat;
+  background-size: 120px;
+  background-attachment: fixed;
+  background-color: #f4f4f4;
+  animation: grain 8s steps(10) infinite;
+}
+
+@keyframes grain {
+  0%,
+  100% {
+    background-position: 0, 0;
+  }
+  10% {
+    background-position: -5%, -10%;
+  }
+  20% {
+    background-position: -15%, 5%;
+  }
+  30% {
+    background-position: 7%, -25%;
+  }
+  40% {
+    background-position: -5%, 25%;
+  }
+  50% {
+    background-position: -15%, 10%;
+  }
+  60% {
+    background-position: 15%, 0%;
+  }
+  70% {
+    background-position: 0%, 15%;
+  }
+  80% {
+    background-position: 3%, 35%;
+  }
+  90% {
+    background-position: -10%, 10%;
+  }
+}
