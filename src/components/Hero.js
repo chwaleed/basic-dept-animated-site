@@ -1,8 +1,9 @@
-import React from "react";
-// import svg from "../assets/Icons/menu.svg";
+"use client";
+import React, { useState } from "react";
 
 const navBar = ["work", "about", "news", "thinking", "careers", "contact"];
 function Hero() {
+  const [mouseEnter, setMouseEnter] = useState(true);
   return (
     <div className="relative h-screen w-screen overflow-hidden">
       <div className="absolute px-24 py-14   flex items-center justify-between w-full z-10">
@@ -11,9 +12,15 @@ function Hero() {
         </h1>
         <ul className="font-FoMed text-[1.1 rem] text-white  flex gap-24">
           {navBar.map((item) => (
-            <li key={item} className=" uppercase ">
+            <a
+              key={item}
+              className={`uppercase relative before:origin-right hover:before:origin-left before:scale-0  before:absolute  before:content-['']
+                    before:h-[2px] before:bg-white before:bottom-[3px] before:w-full before:transition before:ease-in-out
+                     hover:before:scale-100 before:duration-[0.4s]
+                    `}
+            >
               {item}{" "}
-            </li>
+            </a>
           ))}
         </ul>
         <svg className="h-[3rem]  w-[3rem] ">
