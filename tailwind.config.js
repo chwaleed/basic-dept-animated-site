@@ -12,6 +12,11 @@ module.exports = {
         primaryLight: "#f4f4f4",
         primaryPink: "#f9cdcd",
       },
+      fontFamily: {
+        FoBold: "FoBold",
+        Reg: "Regular",
+        FoMed: "FoMedium",
+      },
     },
   },
   plugins: [],

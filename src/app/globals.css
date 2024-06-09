@@ -10,6 +10,18 @@ body {
   background-color: #f4f4f4;
   animation: grain 8s steps(10) infinite;
 }
+@font-face {
+  font-family: Regular;
+  src: url("../assets/fonts/Regular.woff2");
+}
+@font-face {
+  font-family: FoBold;
+  src: url("../assets/fonts/Bold.woff2");
+}
+@font-face {
+  font-family: FoMedium;
+  src: url("../assets/fonts/Medium.woff2");
+}
 
 @keyframes grain {
   0%,
