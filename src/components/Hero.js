@@ -1,17 +1,15 @@
 "use client";
 import React, { useEffect, useState } from "react";
-// import { motion } from "framer-motion";
 const navBar = ["work", "about", "news", "thinking", "careers", "contact"];
 function Hero() {
-  const navRef = React.useRef(null);
-  const [mouseX, setMouseX] = useState(400); // Initial x position
-  const [mouseY, setMouseY] = useState(400); // Initial y position
-  const [showDefaultCursor, setShowDefaultCursor] = useState(false);
+  const [mouseX, setMouseX] = useState(window.innerWidth / 2);
+  const [mouseY, setMouseY] = useState(window.innerHeight / 2);
+  const [leaveScreen, setLeaveScreen] = useState(true);
 
   useEffect(() => {
     setMouseX(window.innerWidth / 2);
     setMouseY(window.innerHeight / 2);
-    if (!showDefaultCursor) {
+    if (!leaveScreen) {
       const handleMouseMove = (event) => {
         setMouseX(event.clientX);
         setMouseY(event.clientY);
@@ -19,31 +17,11 @@ function Hero() {
       window.addEventListener("mousemove", handleMouseMove);
       return () => window.removeEventListener("mousemove", handleMouseMove);
     }
-  }, [showDefaultCursor]);
-
-  const centerDiv = () => {
-    setMouseX(window.innerWidth / 2);
-    setMouseY(window.innerHeight / 2);
-  };
-
-  const handleNavEnter = () => {
-    setMouseX(window.innerWidth / 2);
-    setMouseY(window.innerHeight / 2);
-    setShowDefaultCursor(true);
-  };
-
-  const handleNavLeave = () => {
-    setShowDefaultCursor(false);
-  };
+  }, [leaveScreen]);
 
   return (
     <div className="relative h-screen w-screen overflow-hidden">
-      <div
-        ref={navRef}
-        onMouseEnter={handleNavEnter}
-        onMouseLeave={handleNavLeave}
-        className="fixed px-24 py-14   flex items-center justify-between w-full z-10"
-      >
+      <div className="fixed px-24 py-14   flex items-center justify-between w-full z-10">
         <h1 className="font-FoBold text-white  font-bold text-[2rem] ">
           BASIC/DEPT
         </h1>
@@ -71,8 +49,9 @@ function Hero() {
         </svg>
       </div>
       <div
-        onMouseLeave={centerDiv}
-        className="relative  transition duration-200  w-full h-full"
+        onMouseEnter={() => setLeaveScreen(false)}
+        onMouseLeave={() => setLeaveScreen(true)}
+        className=" relative cursor-non  transition duration-200  w-full h-full"
       >
         <video
           className="  z-0 top-0 left-0 w-full h-full object-cover"
@@ -84,11 +63,32 @@ function Hero() {
           Your browser does not support the video tag.
         </video>
         <div
-          style={{
-            top: `${mouseY - 70}px`,
-            left: `${mouseX - 70}px`,
-          }}
-          className={`absolute transition duration-500 cursor-none text-center leading-tight font-FoBold text-white  bottom-0`}
+          // style={
+          //   {
+          //     // transform: `translate(-50%, -50%)`,
+          //     // transform: `translate(${mouseX - 80}px, ${mouseY - 660}px)`,
+          //   }
+          // }
+          // style={{
+          //   left: `${mouseX}px`, // Directly set left position
+          //   top: `${mouseY}px`, // Directly set top position
+          //   // transition: "left 0.2s ease-out, top 0.2s ease-out",
+          //   // transition: "ease",
+          // }}
+          style={
+            // Apply transition only when `leaveScreen` is true
+            leaveScreen
+              ? {
+                  left: `${mouseX - 80}px`,
+                  top: `${mouseY - 50}px`,
+                  transition: "left 0.2s ease-out, top 0.2s ease-out",
+                }
+              : {
+                  left: `${mouseX - 80}px`,
+                  top: `${mouseY - 50}px`,
+                }
+          }
+          className={`absolute text-center  pointer-events-none leading-tight font-FoBold text-white  bottom-0`}
         >
           <div className="bg-white mb-2 flex text-black uppercase justify-center items-center text-center leading-tight font-FoBold w-[9rem] h-[9rem] rounded-[50%]">
             Watch <br /> Reel
