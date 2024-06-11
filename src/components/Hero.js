@@ -51,7 +51,7 @@ function Hero() {
       <div
         onMouseEnter={() => setLeaveScreen(false)}
         onMouseLeave={() => setLeaveScreen(true)}
-        className=" relative cursor-non  transition duration-200  w-full h-full"
+        className=" relative cursor-none  transition duration-200  w-full h-full"
       >
         <video
           className="  z-0 top-0 left-0 w-full h-full object-cover"
@@ -63,20 +63,7 @@ function Hero() {
           Your browser does not support the video tag.
         </video>
         <div
-          // style={
-          //   {
-          //     // transform: `translate(-50%, -50%)`,
-          //     // transform: `translate(${mouseX - 80}px, ${mouseY - 660}px)`,
-          //   }
-          // }
-          // style={{
-          //   left: `${mouseX}px`, // Directly set left position
-          //   top: `${mouseY}px`, // Directly set top position
-          //   // transition: "left 0.2s ease-out, top 0.2s ease-out",
-          //   // transition: "ease",
-          // }}
           style={
-            // Apply transition only when `leaveScreen` is true
             leaveScreen
               ? {
                   left: `${mouseX - 80}px`,
