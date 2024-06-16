@@ -1,70 +1,76 @@
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @tailwind components;
+  @tailwind utilities;
 
-body {
-  background-image: url("../assets/noice.png");
-  background-repeat: repeat;
-  background-size: 120px;
-  background-attachment: fixed;
-  background-color: #f4f4f4;
-  animation: grain 8s steps(10) infinite;
-}
-@font-face {
-  font-family: Regular;
-  src: url("../assets/fonts/Regular.woff2");
-}
-@font-face {
-  font-family: FoBold;
-  src: url("../assets/fonts/Bold.woff2");
-}
-@font-face {
-  font-family: FoMedium;
-  src: url("../assets/fonts/Medium.woff2");
-}
+  @layer base {
+    :root {
+      --background: 0 0% 100%;
+      --foreground: 224 71.4% 4.1%;
 
-@keyframes grain {
-  0%,
-  100% {
-    background-position: 0, 0;
-  }
-  10% {
-    background-position: -5%, -10%;
-  }
-  20% {
-    background-position: -15%, 5%;
-  }
-  30% {
-    background-position: 7%, -25%;
-  }
-  40% {
-    background-position: -5%, 25%;
-  }
-  50% {
-    background-position: -15%, 10%;
-  }
-  60% {
-    background-position: 15%, 0%;
-  }
-  70% {
-    background-position: 0%, 15%;
-  }
-  80% {
-    background-position: 3%, 35%;
-  }
-  90% {
-    background-position: -10%, 10%;
-  }
-}
+      --card: 0 0% 100%;
+      --card-foreground: 224 71.4% 4.1%;
 
-@layer utilities {
-  /* Chrome, Safari and Opera */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
+      --popover: 0 0% 100%;
+      --popover-foreground: 224 71.4% 4.1%;
+
+      --primary: 220.9 39.3% 11%;
+      --primary-foreground: 210 20% 98%;
+
+      --secondary: 220 14.3% 95.9%;
+      --secondary-foreground: 220.9 39.3% 11%;
+
+      --muted: 220 14.3% 95.9%;
+      --muted-foreground: 220 8.9% 46.1%;
+
+      --accent: 220 14.3% 95.9%;
+      --accent-foreground: 220.9 39.3% 11%;
+
+      --destructive: 0 84.2% 60.2%;
+      --destructive-foreground: 210 20% 98%;
+
+      --border: 220 13% 91%;
+      --input: 220 13% 91%;
+      --ring: 224 71.4% 4.1%;
+
+      --radius: 0.5rem;
+    }
+
+    .dark {
+      --background: 224 71.4% 4.1%;
+      --foreground: 210 20% 98%;
+
+      --card: 224 71.4% 4.1%;
+      --card-foreground: 210 20% 98%;
+
+      --popover: 224 71.4% 4.1%;
+      --popover-foreground: 210 20% 98%;
+
+      --primary: 210 20% 98%;
+      --primary-foreground: 220.9 39.3% 11%;
+
+      --secondary: 215 27.9% 16.9%;
+      --secondary-foreground: 210 20% 98%;
+
+      --muted: 215 27.9% 16.9%;
+      --muted-foreground: 217.9 10.6% 64.9%;
+
+      --accent: 215 27.9% 16.9%;
+      --accent-foreground: 210 20% 98%;
+
+      --destructive: 0 62.8% 30.6%;
+      --destructive-foreground: 210 20% 98%;
+
+      --border: 215 27.9% 16.9%;
+      --input: 215 27.9% 16.9%;
+      --ring: 216 12.2% 83.9%;
+    }
   }
 
-  .no-scrollbar {
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
+  @layer base {
+    * {
+      @apply border-border;
+    }
+    body {
+      @apply bg-background text-foreground;
+    }
   }
-}
