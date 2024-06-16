@@ -1,10 +1,11 @@
+"use client";
 import Hero from "@/components/Hero";
-import Cursoal from "@/components/Cursoal";
+import MainPage from "@/components/pages/MainPage";
+import { useState } from "react";
 export default function Home() {
   return (
     <>
-      {/* <Hero /> */}
-      <Cursoal />
+      <MainPage />
     </>
   );
 }

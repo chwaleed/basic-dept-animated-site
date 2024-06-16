@@ -16,7 +16,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
-function Cursoal() {
+function Cursoal({ handleMenu }) {
   const [hoverIndex, setHoverIndex] = useState(null);
   const [leaveScreen, setLeaveScreen] = useState(true);
   const [mouseX, setMouseX] = useState(1370);
@@ -83,8 +83,8 @@ function Cursoal() {
   ];
 
   return (
-    <div className="bg-priamryDark  overflow-x-hidden font-FoMed h-screen w-screen">
-      <div className="flex px-[6.2rem]  text-primaryPink py-[3.5rem]  bg-blue-900  justify-between ">
+    <div className="bg-priamryDark absolute top-0  z-40  overflow-x-hidden font-FoMed h-screen w-screen">
+      <div className="flex px-[6.2rem]  text-primaryPink py-[3.5rem]   justify-between ">
         <div className="flex  before:content-[''] before:w-[0.8rem] before:h-[0.8rem] before:rounded-[50%] before:mt-1  before:bg-primaryPink text-[1rem] ">
           <h1 className="ml-[2.2rem] leading-tight">
             (5)INTERNAL WORKS <br /> ©24 c/o BASIC/DEPT
@@ -95,7 +95,10 @@ function Cursoal() {
             BASIC/DEPT BRAND.
           </h1>
         </div>
-        <AiOutlineCloseCircle className="text-[3rem] text-white" />
+        <AiOutlineCloseCircle
+          onClick={handleMenu}
+          className="text-[3rem] text-white"
+        />
       </div>
       <motion.div
         onMouseEnter={() => setLeaveScreen(false)}
@@ -186,6 +189,10 @@ function Cursoal() {
           {linkHover ? "" : "DRAG"}
         </motion.div>
       </motion.div>
+      <div className="flex font-semibold text-gray-500 justify-between px-[5.6rem] mt-[6rem]">
+        <h1>BASIC/DEPT,INC</h1>
+        <h1>10 - 24</h1>
+      </div>
     </div>
   );
 }
