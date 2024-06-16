@@ -86,7 +86,7 @@ function Hero() {
           </div>
         </div>
       </div>
-      {openMenu && <Cursoal menu={handleMenu} />}
+      {openMenu && <Cursoal />}
     </div>
   );
 }

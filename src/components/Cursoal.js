@@ -16,7 +16,7 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
-function Cursoal({ handleMenu }) {
+function Cursoal() {
   const [hoverIndex, setHoverIndex] = useState(null);
   const [leaveScreen, setLeaveScreen] = useState(true);
   const [mouseX, setMouseX] = useState(1370);
@@ -95,10 +95,7 @@ function Cursoal({ handleMenu }) {
             BASIC/DEPT BRAND.
           </h1>
         </div>
-        <AiOutlineCloseCircle
-          onClick={handleMenu}
-          className="text-[3rem] text-white"
-        />
+        <AiOutlineCloseCircle className="text-[3rem] text-white" />
       </div>
       <motion.div
         onMouseEnter={() => setLeaveScreen(false)}
