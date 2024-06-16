@@ -170,7 +170,10 @@ function Cursoal() {
         <Carousel>
           <CarouselContent>
             {items.map((items, index) => (
-              <CarouselItem key={index}>
+              <CarouselItem
+                key={index}
+                className=" bg-black mt-2 flex max-w-[30rem] h-[27rem]  items-center relative  flex-col "
+              >
                 <div
                   key={index}
                   onMouseEnter={() => setHoverIndex(index)}
