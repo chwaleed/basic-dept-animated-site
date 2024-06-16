@@ -2,6 +2,11 @@
 import React, { useEffect, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import menu1 from "../assets/Icons/menu1.webp";
+import menu2 from "../assets/Icons/menu2.webp";
+import menu3 from "../assets/Icons/menu3.webp";
+import menu4 from "../assets/Icons/menu4.webp";
+import menu5 from "../assets/Icons/menu5.webp";
+
 import Image from "next/image";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 
@@ -30,9 +35,52 @@ function Cursoal() {
       return () => window.removeEventListener("mousemove", handleMouseMove);
     }
   }, [leaveScreen]);
-  console.log(leaveScreen);
 
-  const items = [1, 2, 3, 4, 5];
+  const items = [
+    {
+      title: "B/D JAMS",
+      year: "2020",
+      span: "IT'S A VIBE",
+      text: "A weekly-ish playlist curated by the employees @ BASIC/DEPT",
+      link: "Viste the Site",
+
+      img: menu4,
+    },
+    {
+      title: "APPLIED",
+      year: "2020",
+      span: "THOUGHTS & PERSPECTIVES",
+      text: "Our panel series and thought-leadership platfrom where we share perspectives and tasctics realted to strategy, design, and technology.",
+      link: "Explore Applied",
+
+      img: menu5,
+    },
+    {
+      title: "MOVIES",
+      year: "2019",
+      span: "OUR NEW HQ",
+      text: "When we moved into our new HQ, we put together a site experience providing an in-depth look into the two-year process imagining, designing, and developing our new office we call home.",
+      link: "Viste the Site",
+
+      img: menu2,
+    },
+    {
+      title: "CRAFTED",
+      year: "2019",
+      span: "CREATIVE COMMUNITY",
+      text: "A communal initiative we operate to celebrate diversity and creativity by bringing together people from different backgound and interests.",
+      link: "Viste the Site",
+      img: menu3,
+    },
+    {
+      title: "BRANDBEASTS",
+      year: "2017",
+      span: "PODCAST SERIES",
+      text: "Our podcast series garnering 45,000+ listens per episode providing candid conversations around various industry realted topics.",
+      link: "Explore Brandbeats",
+      img: menu1,
+    },
+  ];
 
   return (
     <div className="bg-priamryDark  overflow-x-hidden font-FoMed h-screen w-screen">
@@ -66,7 +114,7 @@ function Cursoal() {
                 <div className=" bg-priamryDark mt-2   before:content-[''] before:text-white before:flex before:items-end overflow-hidden  before:absolute before:left-0 before:w-[1px] before:bg-primaryPink before:z-10 before:h-[29rem] flex w-[30rem] h-[27rem]  items-center relative  flex-col ">
                   <div className="w-[28rem]  transition duration-400 overflow-hidden  relative h-[20rem]">
                     <Image
-                      src={menu1}
+                      src={items.img}
                       fill={true}
                       alt="1st Menu Image"
                       style={{
@@ -76,6 +124,7 @@ function Cursoal() {
                           hoverIndex === index ? "scale(1)" : "scale(1.1)",
                         transition: "transform 0.4s ease",
                       }}
+                      loading="lazy"
                     />
                   </div>
 
@@ -85,11 +134,11 @@ function Cursoal() {
                   >
                     <motion.div layout="preserve-aspect">
                       <div className=" px-7 text-primaryPink  flex justify-between text-[1.4rem] font-bold">
-                        <h1>MOVIES</h1>
-                        <h1>2019</h1>
+                        <h1>{items.title}</h1>
+                        <h1>{items.year} </h1>
                       </div>
                       <h1 className="text-primaryPink px-7  font-bold text-[1rem]">
-                        PRODCAST SERIES
+                        {items.span}
                       </h1>
                     </motion.div>
                     {hoverIndex == index && (
@@ -101,17 +150,13 @@ function Cursoal() {
                         exit={{ opacity: 0 }}
                         className="text-primaryPink  z-10 bg-priamryDark   px-7  pt-[2rem]  flex flex-col gap-[2rem]"
                       >
-                        <p>
-                          Our prodcast series garneriing 45,000+ listens per
-                          episode providing candid converstion around variouos
-                          industries related topics.
-                        </p>
+                        <p>{items.text}</p>
                         <h1
                           onMouseEnter={() => setLinkHover(true)}
                           onMouseLeave={() => setLinkHover(false)}
                           className=" pointer-events-auto cursor-pointer underline"
                         >
-                          Explore Brandbeats
+                          {items.link}
                         </h1>
                       </motion.div>
                     )}
@@ -132,7 +177,6 @@ function Cursoal() {
               : {
                   left: `${mouseX - 55}px`,
                   top: `${mouseY - 220}px`,
-                  // transition: "left 0.2s ease-out, top 0.2s ease-out",
                 }
           }
           className={` ${
@@ -147,14 +191,3 @@ function Cursoal() {
 }
 
 export default Cursoal;
-
-{
-  /* <div
-  onMouseEnter={() => setLeaveScreen(false)}
-  onMouseLeave={() => setLeaveScreen(true)}
-  ref={ref}
-  className="flex flex-1    relative user-select:none overflow-y-visible mb no-scrollbar overflow-x-scroll    "
->
-  <div className="ml-[5rem] select-none flex  mr-[5rem]"></div>
-</div>; */
-}
