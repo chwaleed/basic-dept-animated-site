@@ -1,132 +1,22 @@
 "use client";
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import menu1 from "../assets/Icons/menu1.webp";
 import Image from "next/image";
 import { motion, AnimatePresence, useAnimation } from "framer-motion";
 
-// import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
 } from "@/components/ui/carousel";
 
 function Cursoal() {
-  const control = useAnimation();
-  const [isDown, setIsDown] = useState(false);
-  const [startX, setStartX] = useState(0);
-  const [scrollLeft, setScrollLeft] = useState(0);
   const [hoverIndex, setHoverIndex] = useState(null);
   const [leaveScreen, setLeaveScreen] = useState(true);
   const [mouseX, setMouseX] = useState(1370);
   const [mouseY, setMouseY] = useState(400);
   const [linkHover, setLinkHover] = useState(false);
-
-  // const ref = useRef(null);
-
-  // const ref = useRef(null);
-  // const scrollSpeedMultiplier = 1.5; // Adjust this for desired scroll speed
-
-  // Smooth Scrolling Function
-  // const smoothScroll = (targetScroll) => {
-  // const startScroll = ref.current.scrollLeft;
-  // const distance = targetScroll - startScroll;
-  // const duration = 200; // Adjust for desired scroll duration
-  // let startTime = null;
-
-  //   const animateScroll = (timestamp) => {
-  //     if (!startTime) {
-  //       startTime = timestamp;
-  //     }
-  //     const progress = (timestamp - startTime) / duration;
-  //     ref.current.scrollLeft = startScroll + distance * progress;
-  //     if (progress < 1) {
-  //       window.requestAnimationFrame(animateScroll);
-  //     }
-  //   };
-  //   window.requestAnimationFrame(animateScroll);
-  // };
-
-  // useEffect(() => {
-  //   if (!ref.current) return;
-  //   const handleMouseDown = (e) => {
-  //     setIsDown(true);
-  //     setStartX(e.pageX - ref.current.offsetLeft);
-  //     setScrollLeft(ref.current.scrollLeft);
-  //   };
-
-  //   const handleMouseLeave = () => {
-  //     setIsDown(false);
-  //   };
-
-  //   const handleMouseUp = () => {
-  //     setIsDown(false);
-  //   };
-
-  //   const handleMouseMove = (e) => {
-  //     if (!isDown) return;
-  //     e.preventDefault();
-  //     const x = e.pageX - ref.current.offsetLeft;
-  //     const walk = (x - startX) * scrollSpeedMultiplier; // Use multiplier
-  //     smoothScroll(scrollLeft - walk); // Use smooth scroll function
-  //   };
-
-  //   const slider = ref.current;
-  //   slider.addEventListener("mousedown", handleMouseDown);
-  //   slider.addEventListener("mouseleave", handleMouseLeave);
-  //   window.addEventListener("mouseup", handleMouseUp);
-  //   slider.addEventListener("mousemove", handleMouseMove);
-
-  //   // Cleanup event listeners on component unmount
-  //   return () => {
-  //     slider.removeEventListener("mousedown", handleMouseDown);
-  //     slider.removeEventListener("mouseleave", handleMouseLeave);
-  //     window.removeEventListener("mouseup", handleMouseUp);
-  //     slider.removeEventListener("mousemove", handleMouseMove);
-  //   };
-  // }, [isDown, startX, scrollLeft, scrollSpeedMultiplier]);
-
-  //  useEffect(() => {
-  //   if (!ref.current) return;
-  //   const handleMouseDown = (e) => {
-  //     setIsDown(true);
-  //     setStartX(e.pageX - ref.current.offsetLeft);
-  //     setScrollLeft(ref.current.scrollLeft);
-  //   };
-
-  //   const handleMouseLeave = () => {
-  //     setIsDown(false);
-  //   };
-
-  //   const handleMouseUp = () => {
-  //     setIsDown(false);
-  //   };
-
-  //   const handleMouseMove = (e) => {
-  //     if (!isDown) return;
-  //     e.preventDefault();
-  //     const x = e.pageX - ref.current.offsetLeft;
-  //     const walk = (x - startX) * 0.5;
-  //     ref.current.scrollLeft = scrollLeft - walk;
-  //   };
-
-  //   const slider = ref.current;
-  //   slider.addEventListener("mousedown", handleMouseDown);
-  //   slider.addEventListener("mouseleave", handleMouseLeave);
-  //   window.addEventListener("mouseup", handleMouseUp);
-  //   slider.addEventListener("mousemove", handleMouseMove);
-
-  //   // Cleanup event listeners on component unmount
-  //   return () => {
-  //     slider.removeEventListener("mousedown", handleMouseDown);
-  //     slider.removeEventListener("mouseleave", handleMouseLeave);
-  //     window.removeEventListener("mouseup", handleMouseUp);
-  //     slider.removeEventListener("mousemove", handleMouseMove);
-  //   };
-  //  }, [isDown, startX, scrollLeft]);
 
   useEffect(() => {
     setMouseX(1370);
@@ -142,13 +32,6 @@ function Cursoal() {
   }, [leaveScreen]);
   console.log(leaveScreen);
 
-  const variants = {
-    animate: {
-      transition: {
-        duration: 0.75,
-      },
-    },
-  };
   const items = [1, 2, 3, 4, 5];
 
   return (
@@ -166,21 +49,22 @@ function Cursoal() {
         </div>
         <AiOutlineCloseCircle className="text-[3rem] text-white" />
       </div>
-      <motion.div layout className="relative user-select:none">
-        <Carousel>
-          <CarouselContent>
+      <motion.div
+        onMouseEnter={() => setLeaveScreen(false)}
+        onMouseLeave={() => setLeaveScreen(true)}
+        className="relative user-select:none cursor-none"
+      >
+        <Carousel className="overflow-x-visible">
+          <CarouselContent className="ml-[5rem] mr-[5rem]  ">
             {items.map((items, index) => (
               <CarouselItem
                 key={index}
-                className=" bg-black mt-2 flex max-w-[30rem] h-[27rem]  items-center relative  flex-col "
+                onMouseEnter={() => setHoverIndex(index)}
+                onMouseLeave={() => setHoverIndex(null)}
+                className=" select-none mt-2 max-w-[30rem] "
               >
-                <div
-                  key={index}
-                  onMouseEnter={() => setHoverIndex(index)}
-                  onMouseLeave={() => setHoverIndex(null)}
-                  className=" bg-priamryDark mt-2   before:content-[''] before:text-white before:flex before:items-end overflow-hidden  before:absolute before:left-0 before:w-[1px] before:bg-primaryPink before:z-10 before:h-[29rem] flex min-w-[30rem] h-[27rem]  items-center relative  flex-col "
-                >
-                  <div className="w-[28rem]  transition duration-400 overflow-hidden  relative h-[22rem]">
+                <div className=" bg-priamryDark mt-2   before:content-[''] before:text-white before:flex before:items-end overflow-hidden  before:absolute before:left-0 before:w-[1px] before:bg-primaryPink before:z-10 before:h-[29rem] flex w-[30rem] h-[27rem]  items-center relative  flex-col ">
+                  <div className="w-[28rem]  transition duration-400 overflow-hidden  relative h-[20rem]">
                     <Image
                       src={menu1}
                       fill={true}
