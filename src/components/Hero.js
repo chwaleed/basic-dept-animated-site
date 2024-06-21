@@ -1,5 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { menuContaxt } from "./pages/MainPage";
 const navBar = ["work", "about", "news", "thinking", "careers", "contact"];
 import Cursoal from "./Cursoal";
 function Hero() {
@@ -7,6 +8,7 @@ function Hero() {
   const [mouseY, setMouseY] = useState(window.innerHeight / 2);
   const [leaveScreen, setLeaveScreen] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
+  const { menuChange, menuOpen } = useContext(menuContaxt);
 
   useEffect(() => {
     setMouseX(window.innerWidth / 2);
@@ -20,9 +22,6 @@ function Hero() {
       return () => window.removeEventListener("mousemove", handleMouseMove);
     }
   }, [leaveScreen]);
-  const handleMenu = () => {
-    setOpenMenu(!openMenu);
-  };
 
   return (
     <div className=" relative h-screen w-screen ">
@@ -44,7 +43,7 @@ function Hero() {
               </a>
             ))}
           </ul>
-          <svg onClick={handleMenu} className="h-[3rem]  w-[3rem] ">
+          <svg onClick={menuChange} className="h-[3rem]  w-[3rem] ">
             <path d="M4 12h36" stroke="#ffffff" strokeWidth="2" fill="none" />
             <path d="M4 24h36" stroke="#ffffff" strokeWidth="2" fill="none" />
             <path d="M4 36h36" stroke="#ffffff" strokeWidth="2" fill="none" />
@@ -56,7 +55,7 @@ function Hero() {
           className=" relative cursor-none  transition duration-200  w-full h-full"
         >
           <video
-            className="  z-0 top-0 left-0 w-full h-full object-cover"
+            className="  z-0 top-0 left-0 w-screen h-screen object-cover"
             autoPlay
             loop
             muted
@@ -86,7 +85,7 @@ function Hero() {
           </div>
         </div>
       </div>
-      {openMenu && <Cursoal />}
+      {menuOpen && <Cursoal />}
     </div>
   );
 }

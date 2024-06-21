@@ -1,6 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { menuContaxt } from "./pages/MainPage";
 import menu1 from "../assets/Icons/menu1.webp";
 import menu2 from "../assets/Icons/menu2.webp";
 import menu3 from "../assets/Icons/menu3.webp";
@@ -22,6 +23,7 @@ function Cursoal() {
   const [mouseX, setMouseX] = useState(1370);
   const [mouseY, setMouseY] = useState(400);
   const [linkHover, setLinkHover] = useState(false);
+  const { menuChange, menuOpen } = useContext(menuContaxt);
 
   useEffect(() => {
     setMouseX(1370);
@@ -83,7 +85,12 @@ function Cursoal() {
   ];
 
   return (
-    <div className="bg-priamryDark absolute top-0  z-40  overflow-x-hidden font-FoMed h-screen w-screen">
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className="bg-priamryDark absolute top-0  z-40  overflow-x-hidden font-FoMed h-screen w-screen"
+    >
       <div className="flex px-[6.2rem]  text-primaryPink py-[3.5rem]   justify-between ">
         <div className="flex  before:content-[''] before:w-[0.8rem] before:h-[0.8rem] before:rounded-[50%] before:mt-1  before:bg-primaryPink text-[1rem] ">
           <h1 className="ml-[2.2rem] leading-tight">
@@ -95,12 +102,18 @@ function Cursoal() {
             BASIC/DEPT BRAND.
           </h1>
         </div>
-        <AiOutlineCloseCircle className="text-[3rem] text-white" />
+        <AiOutlineCloseCircle
+          onClick={menuChange}
+          className="text-[3rem] text-white"
+        />
       </div>
       <motion.div
+        initial={{ x: "100vw", width: "0%" }}
+        animate={{ x: 0, width: "100%" }}
+        transition={{ duration: 1.2, ease: [0.77, 0.0, 0.175, 1.0] }}
         onMouseEnter={() => setLeaveScreen(false)}
         onMouseLeave={() => setLeaveScreen(true)}
-        className="relative user-select:none cursor-none"
+        className="relative  user-select:none cursor-none"
       >
         <Carousel className="overflow-x-visible">
           <CarouselContent className="ml-[5rem] mr-[5rem]  ">
@@ -190,7 +203,7 @@ function Cursoal() {
         <h1>BASIC/DEPT,INC</h1>
         <h1>10 - 24</h1>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

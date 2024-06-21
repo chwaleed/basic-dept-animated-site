@@ -2,32 +2,24 @@
 import React from "react";
 import Hero from "../Hero";
 import { createContext, useContext, useState } from "react";
+import Part2 from "../main2";
 
 export const menuContaxt = createContext();
 
-// Define a component to manage the menu state
-function MenuProvider({ children }) {
-  const [menuOpen, setOpenMenu] = useState(false);
+function MenuProvider() {}
 
+function MainPage() {
+  const [menuOpen, setOpenMenu] = useState(false);
   const menuChange = () => {
     setOpenMenu(!menuOpen);
   };
-
   return (
-    <menuContaxt.Provider value={{ setOpenMenu, menuOpen, menuChange }}>
-      {children}
-    </menuContaxt.Provider>
-  );
-}
-
-function MainPage() {
-  const { setOpenMenu, menuChange, menuOpen } = useContext(menuContaxt);
-  return (
-    <menuContaxt.Provider value={{ setOpenMenu, menuOpen, menuChange }}>
-      <div className="overflow-x-hidden">
+    <menuContaxt.Provider value={{ menuOpen, menuChange }}>
+      <div className="overflow-hidden">
         <Hero />
-        {/* <Cursoal /> */}
+        <Part2 />
       </div>
+      ;
     </menuContaxt.Provider>
   );
 }
