@@ -3,6 +3,7 @@ import React from "react";
 import Hero from "../Hero";
 import { createContext, useContext, useState } from "react";
 import Part2 from "../main2";
+import Main3 from "../main3";
 
 export const menuContaxt = createContext();
 
@@ -18,6 +19,7 @@ function MainPage() {
       <div className="overflow-hidden">
         <Hero />
         <Part2 />
+        <Main3 />
       </div>
       ;
     </menuContaxt.Provider>

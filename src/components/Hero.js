@@ -4,8 +4,8 @@ import { menuContaxt } from "./pages/MainPage";
 const navBar = ["work", "about", "news", "thinking", "careers", "contact"];
 import Cursoal from "./Cursoal";
 function Hero() {
-  const [mouseX, setMouseX] = useState(window.innerWidth / 2);
-  const [mouseY, setMouseY] = useState(window.innerHeight / 2);
+  const [mouseX, setMouseX] = useState(0);
+  const [mouseY, setMouseY] = useState(0);
   const [leaveScreen, setLeaveScreen] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
   const { menuChange, menuOpen } = useContext(menuContaxt);
@@ -36,7 +36,7 @@ function Hero() {
                 key={item}
                 className={`uppercase relative before:origin-right hover:before:origin-left before:scale-0  before:absolute  before:content-['']
                     before:h-[2px] before:bg-white before:bottom-[3px] before:w-full before:transition before:ease-in-out
-                     hover:before:scale-100 before:duration-[0.4s]
+                     hover:before:scale-100 before:duration-[0.8s]
                     `}
               >
                 {item}{" "}
