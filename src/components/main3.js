@@ -1,7 +1,31 @@
 import React from "react";
 import Button from "./Button";
+import Card1 from "@/assets/Card1.webp";
+import Card2 from "@/assets/Card2.webp";
+import Card from "./Card";
 
 function Main3() {
+  const cardContent = [
+    {
+      title: "Patagonia",
+      text: "An eCommerce experience driven by Patagonia’s brand mission",
+      path: Card1,
+      type: "image",
+    },
+    {
+      title: "Wilson",
+      text: "A century-old sports brand finding its place in culture",
+      path: Card2,
+      type: "image",
+    },
+    {
+      title: "Google Store",
+      text: "An eCommerce experience helping Google bring its hardware to people across the globe",
+      path: Card2,
+      type: "video",
+    },
+  ];
+
   return (
     <div>
       <div className="flex px-[5%] mt-[5rem]">
@@ -19,6 +43,16 @@ function Main3() {
           </h1>
         </div>
       </div>
+
+      {cardContent.map((item, index) => (
+        <Card
+          key={index}
+          title={item.title}
+          text={item.text}
+          type={item.type}
+          path={item?.path}
+        />
+      ))}
     </div>
   );
 }

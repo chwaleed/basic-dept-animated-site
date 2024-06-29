@@ -1,21 +1,37 @@
-import React from "react";
-import Card1 from "@/assets/Card1.webp";
-import Card2 from "@/assets/Card1.webp";
+"use client";
+import React, { useState } from "react";
 import Image from "next/image";
 
-function Card() {
+function Card(props) {
+  const [isVideo, setIsVideo] = useState(false);
+  if (props?.type == "video") {
+    setIsVideo(true);
+  }
   return (
-    <div className="flex-1   w-full">
-      <div className=" w-[40rem]  overflow-hidden relative">
-        <Image
-          src={Card1}
-          className=" relative z-20   overflow-hidden bg-yellow-600  transition-all  scale-105 hover:scale-100"
-          objectFit="cover"
-          alt="Card Image"
-        />
+    <div className="group  flex-1  inline-block">
+      <div className="  w-[35rem]   overflow-hidden relative">
+        {isVideo ? (
+          <video
+            className=" relative z-20 w-full  transition-all  scale-105 group-hover:scale-100"
+            autoPlay
+            loop
+            muted
+          >
+            <source src="/CardVideo.mp4" type="video/mp4" />
+          </video>
+        ) : (
+          <Image
+            src={props.path}
+            className=" relative z-20  transition-all  scale-105 group-hover:scale-100"
+            objectFit="cover"
+            alt="Card Image"
+          />
+        )}
       </div>
-      <h1 className="    uppercase font-semibold  text-[2rem]">patagonia</h1>
-      <p>An eCommerce experience driven by Patagonia’s brand mission</p>
+      <h1 className=" group-hover:underline    uppercase font-semibold  text-[2rem]">
+        {props.title}
+      </h1>
+      <p className="uppercase w-[50%]">{props.text}</p>
     </div>
   );
 }
