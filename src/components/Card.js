@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import CardVideo from "../../public/CardVideo.mp4";
+import CardVideo from "./CardVideo";
 
 function Card(props) {
   const [isVideo, setIsVideo] = useState(false);
@@ -12,14 +12,7 @@ function Card(props) {
     <div className="group  flex-1  inline-block">
       <div className="  w-[35rem]   overflow-hidden relative">
         {isVideo ? (
-          <video
-            className=" relative z-20 w-full  transition-all  scale-105 group-hover:scale-100"
-            autoPlay
-            loop
-            muted
-          >
-            <source src={CardVideo} type="video/mp4" />
-          </video>
+          <CardVideo />
         ) : (
           <Image
             src={props.path}
