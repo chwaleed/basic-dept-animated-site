@@ -1,6 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
+import CardVideo from "../../public/CardVideo.mp4";
 
 function Card(props) {
   const [isVideo, setIsVideo] = useState(false);
@@ -17,7 +18,7 @@ function Card(props) {
             loop
             muted
           >
-            <source src="/CardVideo.mp4" type="video/mp4" />
+            <source src={CardVideo} type="video/mp4" />
           </video>
         ) : (
           <Image
