@@ -22,7 +22,7 @@ function Main3() {
       title: "Google Store",
       text: "An eCommerce experience helping Google bring its hardware to people across the globe",
       path: Card2,
-      type: "video",
+      type: "image",
     },
   ];
 
@@ -43,16 +43,17 @@ function Main3() {
           </h1>
         </div>
       </div>
-
-      {cardContent.map((item, index) => (
-        <Card
-          key={index}
-          title={item.title}
-          text={item.text}
-          type={item.type}
-          path={item?.path}
-        />
-      ))}
+      <div className="flex px-[5%] bg-pink-200 mt-28">
+        {cardContent.map((item, index) => (
+          <Card
+            key={index}
+            title={item.title}
+            text={item.text}
+            type={item.type}
+            path={item?.path}
+          />
+        ))}
+      </div>
     </div>
   );
 }

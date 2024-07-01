@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import CardVideo from "./CardVideo";
 
 function Card(props) {
   const [isVideo, setIsVideo] = useState(false);
@@ -11,16 +10,12 @@ function Card(props) {
   return (
     <div className="group  flex-1  inline-block">
       <div className="  w-[35rem]   overflow-hidden relative">
-        {isVideo ? (
-          <CardVideo />
-        ) : (
-          <Image
-            src={props.path}
-            className=" relative z-20  transition-all  scale-105 group-hover:scale-100"
-            objectFit="cover"
-            alt="Card Image"
-          />
-        )}
+        <Image
+          src={props.path}
+          className=" relative z-20  transition-all  scale-105 group-hover:scale-100"
+          objectFit="cover"
+          alt="Card Image"
+        />
       </div>
       <h1 className=" group-hover:underline    uppercase font-semibold  text-[2rem]">
         {props.title}
