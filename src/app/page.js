@@ -9,9 +9,9 @@ export default function Home() {
   return (
     <>
       {/* <Button /> */}
-      {/* <MainPage /> */}
+      <MainPage />
       {/* <Card /> */}
-      <Main3 />
+      {/* <Main3 /> */}
     </>
   );
 }

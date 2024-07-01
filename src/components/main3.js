@@ -43,7 +43,7 @@ function Main3() {
           </h1>
         </div>
       </div>
-      <div className="flex px-[5%] bg-pink-200 mt-28">
+      <div className="flex px-[5%]  mt-28">
         {cardContent.map((item, index) => (
           <Card
             key={index}
@@ -54,6 +54,7 @@ function Main3() {
           />
         ))}
       </div>
+      <hr className="w-[90%] mx-auto bg-priamryDark h-[2px] mt-[10%]" />
     </div>
   );
 }

@@ -9,7 +9,7 @@ function Card(props) {
   }
   return (
     <div className="group  flex-1  inline-block">
-      <div className="  w-[35rem]   overflow-hidden relative">
+      <div className="  w-[38rem]   overflow-hidden relative">
         <Image
           src={props.path}
           className=" relative z-20  transition-all  scale-105 group-hover:scale-100"
