@@ -5,6 +5,10 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import google from "@/assets/10.webp";
+import Image from "next/image";
+
+const CarouselText = [{}];
 
 function Part4() {
   return (
@@ -17,9 +21,7 @@ function Part4() {
         <CarouselContent className=" mr-[5rem]  ">
           <CarouselItem>
             <div className=" w-[28rem]  bg-pink-100 text-priamryDark">
-              <h1 className="text-priamryDark text-[3rem] font-semibold">
-                Google
-              </h1>
+              <Image src={google} className="w-[10rem]" alt="Google" />
               <hr className="bg-priamryDark w-[1.5rem] ml-1 mt-3 h-[3px]" />
               <div className="mt-20">
                 <h2 className=" uppercase text-[2rem] font-semibold">Google</h2>
