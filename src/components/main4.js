@@ -42,16 +42,21 @@ const CarouselText = [
 
 function Part4() {
   return (
-    <div className="mt-32 mb-[10rem] px-[5%]">
+    <div className="mt-32 mb-[10rem] pl-[5%]  overflow-x-visible">
       <h1 className="text-priamryDark text-[3rem] font-bold  leading-[120%]">
         FEATURED
         <br /> ENGAGEMENTS
       </h1>
-      <Carousel className="overflow-x-visible mt-[8rem] ">
-        <CarouselContent className="gap-10">
+      <Carousel
+        opts={{
+          align: "start",
+        }}
+        className="overflow-x-visible mt-[8rem] "
+      >
+        <CarouselContent className=" gap-40 mr-32">
           {CarouselText.map((item, index) => (
-            <CarouselItem className="max-w-[30rem] " key={`${index}_Carsoal`}>
-              <div className=" w-[28rem] h-full    text-priamryDark">
+            <CarouselItem className="max-w-[30rem]  " key={`${index}_Carsoal`}>
+              <div className=" w-[29.9rem] h-full   text-priamryDark">
                 <Image
                   src={item.img}
                   className="max-h-[3rem] w-auto"
@@ -62,7 +67,7 @@ function Part4() {
                   <h2 className=" uppercase text-[2rem] font-semibold">
                     {item.title}
                   </h2>
-                  <p className="text-[1.2rem] font-semibold mt-7">
+                  <p className="text-[1.3rem] font-semibold mt-7">
                     {item.text}
                     <a className="underline cursor-pointer">here</a>.
                   </p>
