@@ -4,6 +4,7 @@ import Hero from "../Hero";
 import { createContext, useContext, useState } from "react";
 import Part2 from "../main2";
 import Main3 from "../main3";
+import Part4 from "../main4";
 
 export const menuContaxt = createContext();
 
@@ -20,8 +21,8 @@ function MainPage() {
         <Hero />
         <Part2 />
         <Main3 />
+        <Part4 />
       </div>
-      ;
     </menuContaxt.Provider>
   );
 }
