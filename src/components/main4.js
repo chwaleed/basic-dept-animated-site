@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {
   Carousel,
@@ -41,42 +41,86 @@ const CarouselText = [
 ];
 
 function Part4() {
+  const [leaveScreen, setLeaveScreen] = useState(true);
+  const [mouseX, setMouseX] = useState(1370);
+  const [mouseY, setMouseY] = useState(400);
+  const [linkHover, setLinkHover] = useState(false);
+  useEffect(() => {
+    setMouseX(1370);
+    setMouseY(400);
+    if (!leaveScreen) {
+      const handleMouseMove = (event) => {
+        setMouseX(event.clientX);
+        setMouseY(event.clientY);
+      };
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, [leaveScreen]);
   return (
     <div className="mt-32 mb-[10rem] pl-[5%]  overflow-x-visible">
       <h1 className="text-priamryDark text-[3rem] font-bold  leading-[120%]">
         FEATURED
         <br /> ENGAGEMENTS
       </h1>
-      <Carousel
-        opts={{
-          align: "start",
-        }}
-        className="overflow-x-visible mt-[8rem] "
+      <div
+        className="relative  cursor-none"
+        onMouseEnter={() => setLeaveScreen(false)}
+        onMouseLeave={() => setLeaveScreen(true)}
       >
-        <CarouselContent className=" gap-40 mr-32">
-          {CarouselText.map((item, index) => (
-            <CarouselItem className="max-w-[30rem]  " key={`${index}_Carsoal`}>
-              <div className=" w-[29.9rem] h-full   text-priamryDark">
-                <Image
-                  src={item.img}
-                  className="max-h-[3rem] w-auto"
-                  alt="Google"
-                />
-                <hr className="bg-priamryDark w-[1.5rem] ml-1 mt-3 h-[3px]" />
-                <div className="mt-20">
-                  <h2 className=" uppercase text-[2rem] font-semibold">
-                    {item.title}
-                  </h2>
-                  <p className="text-[1.3rem] font-semibold mt-7">
-                    {item.text}
-                    <a className="underline cursor-pointer">here</a>.
-                  </p>
+        <Carousel
+          opts={{
+            align: "start",
+          }}
+          className="overflow-x-visible mt-[8rem] "
+        >
+          <CarouselContent className=" gap-40 mr-32">
+            {CarouselText.map((item, index) => (
+              <CarouselItem
+                className="max-w-[30rem]  "
+                key={`${index}_Carsoal`}
+              >
+                <div className=" w-[29.9rem] h-full   text-priamryDark">
+                  <Image
+                    src={item.img}
+                    className="max-h-[3rem] w-auto"
+                    alt="Google"
+                  />
+                  <hr className="bg-priamryDark w-[1.5rem] ml-1 mt-3 h-[3px]" />
+                  <div className="mt-20">
+                    <h2 className=" uppercase text-[2rem] font-semibold">
+                      {item.title}
+                    </h2>
+                    <p className="text-[1.3rem] font-semibold mt-7">
+                      {item.text}
+                      <a className="underline cursor-pointer">here</a>.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+        <motion.div
+          style={
+            leaveScreen
+              ? {
+                  left: `${mouseX - 55}px`,
+                  top: `${mouseY - 220}px`,
+                  transition: "left 0.2s ease-out, top 0.2s ease-out",
+                }
+              : {
+                  left: `${mouseX - 55}px`,
+                  top: `${mouseY - 220}px`,
+                }
+          }
+          className={` ${
+            linkHover ? " opacity-50 " : ""
+          } absolute  bg-primaryPink z-20 pointer-events-none  rounded-[50%] w-[9rem] h-[9rem]  text-priamryDark font-FoMed font-semibold flex justify-center items-center`}
+        >
+          {linkHover ? "" : "DRAG"}
+        </motion.div>
+      </div>
     </div>
   );
 }
