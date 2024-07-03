@@ -113,12 +113,12 @@ function Part4() {
             leaveScreen
               ? {
                   left: `${mouseX - 175}px`,
-                  top: `${mouseY - 545}px`,
+                  top: `${mouseY - 510}px`,
                   transition: "left 0.2s ease-out, top 0.2s ease-out",
                 }
               : {
                   left: `${mouseX - 175}px`,
-                  top: `${mouseY - 545}px`,
+                  top: `${mouseY - 510}px`,
                 }
           }
           className={` ${
