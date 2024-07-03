@@ -42,12 +42,12 @@ const CarouselText = [
 
 function Part4() {
   const [leaveScreen, setLeaveScreen] = useState(true);
-  const [mouseX, setMouseX] = useState(1370);
-  const [mouseY, setMouseY] = useState(400);
+  const [mouseX, setMouseX] = useState(1600);
+  const [mouseY, setMouseY] = useState(600);
   const [linkHover, setLinkHover] = useState(false);
   useEffect(() => {
-    setMouseX(1370);
-    setMouseY(400);
+    setMouseX(1600);
+    setMouseY(600);
     if (!leaveScreen) {
       const handleMouseMove = (event) => {
         setMouseX(event.clientX);
@@ -64,7 +64,7 @@ function Part4() {
         <br /> ENGAGEMENTS
       </h1>
       <div
-        className="relative  cursor-none"
+        className="relative  cursor-non"
         onMouseEnter={() => setLeaveScreen(false)}
         onMouseLeave={() => setLeaveScreen(true)}
       >
@@ -80,7 +80,7 @@ function Part4() {
                 className="max-w-[30rem]  "
                 key={`${index}_Carsoal`}
               >
-                <div className=" w-[29.9rem] h-full   text-priamryDark">
+                <div className=" w-[29.9rem] h-full select-none   text-priamryDark">
                   <Image
                     src={item.img}
                     className="max-h-[3rem] w-auto"
@@ -93,7 +93,14 @@ function Part4() {
                     </h2>
                     <p className="text-[1.3rem] font-semibold mt-7">
                       {item.text}
-                      <a className="underline cursor-pointer">here</a>.
+                      <a
+                        onMouseEnter={() => setLinkHover(true)}
+                        onMouseLeave={() => setLinkHover(false)}
+                        className="underline cursor-pointer"
+                      >
+                        here
+                      </a>
+                      .
                     </p>
                   </div>
                 </div>
@@ -101,17 +108,17 @@ function Part4() {
             ))}
           </CarouselContent>
         </Carousel>
-        <motion.div
+        <div
           style={
             leaveScreen
               ? {
-                  left: `${mouseX - 55}px`,
-                  top: `${mouseY - 220}px`,
+                  left: `${mouseX - 175}px`,
+                  top: `${mouseY - 545}px`,
                   transition: "left 0.2s ease-out, top 0.2s ease-out",
                 }
               : {
-                  left: `${mouseX - 55}px`,
-                  top: `${mouseY - 220}px`,
+                  left: `${mouseX - 175}px`,
+                  top: `${mouseY - 545}px`,
                 }
           }
           className={` ${
@@ -119,7 +126,7 @@ function Part4() {
           } absolute  bg-primaryPink z-20 pointer-events-none  rounded-[50%] w-[9rem] h-[9rem]  text-priamryDark font-FoMed font-semibold flex justify-center items-center`}
         >
           {linkHover ? "" : "DRAG"}
-        </motion.div>
+        </div>
       </div>
     </div>
   );
