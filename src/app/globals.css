@@ -3,13 +3,28 @@
 @tailwind utilities;
 
 body {
+  --backgroundMoving: url("../assets/noice.png");
+  --backgroundRepeat: repeat;
+  --backgroundSize: 120px;
+  --backgroundAttachment: fixed;
+  --backgroundColor: #f4f4f4;
+
+  background-image: var(--backgroundMoving);
+  background-repeat: var(--backgroundRepeat);
+  background-size: var(--backgroundSize);
+  background-attachment: var(--backgroundAttachment);
+  background-color: var(--backgroundColor);
+  animation: grain 8s steps(10) infinite;
+}
+
+.animated-background {
   background-image: url("../assets/noice.png");
   background-repeat: repeat;
   background-size: 120px;
   background-attachment: fixed;
-  background-color: #f4f4f4;
   animation: grain 8s steps(10) infinite;
 }
+
 @font-face {
   font-family: Regular;
   src: url("../assets/fonts/Regular.woff2");
