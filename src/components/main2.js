@@ -4,7 +4,7 @@ function Part2() {
   return (
     <>
       <div className="flex flex-col py-[14rem]  items-center ">
-        <ul class="flex  gap-[3rem] w-[70%] justify-between  items-end ">
+        <ul className="flex  gap-[3rem] w-[70%] justify-between  items-end ">
           <li className=" group w-[13rem] text-center flex flex-col gap-[4rem] ">
             <figure>
               <svg
