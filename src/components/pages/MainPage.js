@@ -18,7 +18,7 @@ function MainPage() {
   };
   return (
     <menuContaxt.Provider value={{ menuOpen, menuChange }}>
-      <div className=" ">
+      <div className=" overflow-clip ">
         <Hero />
         <Part2 />
         <Main3 />

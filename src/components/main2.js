@@ -3,7 +3,7 @@ import React from "react";
 function Part2() {
   return (
     <>
-      <div className="flex flex-col py-[14rem]  items-center ">
+      <div className="flex flex-col py-[14rem] overflow-hidden  items-center ">
         <ul className="flex  gap-[3rem] w-[70%] justify-between  items-end ">
           <li className=" group w-[13rem] text-center flex flex-col gap-[4rem] ">
             <figure>

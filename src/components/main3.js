@@ -27,7 +27,7 @@ function Main3() {
   ];
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <div className="flex px-[5%] mt-[5rem]">
         <div className="flex-1 pl-[4rem] ">
           <p className="text-[2.5rem] mb-12 tracking-tight pr-[20%]   leading-snug font-semibold text-priamryDark">

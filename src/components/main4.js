@@ -58,7 +58,7 @@ function Part4() {
     }
   }, [leaveScreen]);
   return (
-    <div className="mt-32 mb-[10rem] pl-[5%]  overflow-x-visible">
+    <div className="mt-32 mb-[10rem] pl-[5%]  overflow-hidden">
       <h1 className="text-priamryDark text-[3rem] font-bold  leading-[120%]">
         FEATURED
         <br /> ENGAGEMENTS
@@ -72,9 +72,9 @@ function Part4() {
           opts={{
             align: "start",
           }}
-          className="overflow-x-visible mt-[8rem] "
+          className="overflow-x-visible cursor-non mb-24 mt-[8rem] "
         >
-          <CarouselContent className=" gap-40 mr-32">
+          <CarouselContent className="  gap-40 mr-32">
             {CarouselText.map((item, index) => (
               <CarouselItem
                 className="max-w-[30rem]  "
@@ -123,7 +123,7 @@ function Part4() {
           }
           className={` ${
             linkHover ? " opacity-50 " : ""
-          } absolute  bg-primaryPink z-20 pointer-events-none  rounded-[50%] w-[9rem] h-[9rem]  text-priamryDark font-FoMed font-semibold flex justify-center items-center`}
+          } absolute  bg-primaryPink z-50 pointer-events-none  rounded-[50%] w-[9rem] h-[9rem]  text-priamryDark font-FoMed font-semibold flex justify-center items-center`}
         >
           {linkHover ? "" : "DRAG"}
         </div>
