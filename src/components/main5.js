@@ -11,7 +11,7 @@ function Part5() {
   return (
     <motion.div className=" bg-priamryDark  h-[300vh] mb-[50vh]">
       <div className=" px-[5%]    mx-auto relative   h-[120vh] ">
-        <div className=" sticky top-[7rem] inline-block">
+        <div className=" sticky  top-[7rem] inline-block">
           <h1 className="text-[8rem] text-primaryPink  leading-[100%]  font-bold ">
             BASIC/DEPT® <br />
             HELPS <br />
@@ -19,10 +19,11 @@ function Part5() {
             CONNECT W/ <br />
             CULTURE
           </h1>
-          <h1 className="text-primaryPink text-[1.3rem] mt-[1.6rem]">
+          <h1 className="text-primaryPink mb-[4rem] text-[1.3rem] mt-[1.6rem]">
             ADWEEK <span className="font-bold">AGENCY SPOTLIGHT</span>
           </h1>
-          <Button text={"About us"} pink={true} />
+
+          <Button text={"About us"} pink={true} extra={"mt-[2rem]"} />
         </div>
         <div className=" w-[45%] ml-32  inline    absolute    h-[120vh]">
           <Image
