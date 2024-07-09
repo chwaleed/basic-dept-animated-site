@@ -8,20 +8,25 @@ function Part5() {
   const isInView = useInView(ref, { once: true, amount: 0.6 }); // 60% in view
 
   return (
-    <motion.div className=" bg-priamryDark   relative  h-[150vh]  mb-[50vh]">
-      <div className="flex px-[5%]  sticky  bg-red-50 ">
-        <h1 className=" text-[7rem]   bg-black h-[30%]  leading-[100%] text-primaryPink font-bold">
+    <motion.div className="    h-[300vh] mb-[50vh]">
+      <div className=" px-[5%]   mt-5 mx-auto relative  bg-red-50 h-[130vh] ">
+        <h1 className="text-[8rem] sticky top-[4rem] inline-flex  leading-[100%] text-primaryPink font-bold bg-black">
           BASIC/DEPT® <br />
           HELPS <br />
-          BRANDS ● CONNECT W/ <br />
+          BRANDS ●<br />
+          CONNECT W/ <br />
           CULTURE
         </h1>
+        <div className=" w-[45%] ml-32  inline    absolute   bg-slate-500 h-[120vh]">
+          <Image
+            src={Card1}
+            alt="Card Image"
+            layout="fill"
+            objectFit="cover"
+            className="h-full w-full"
+          />
+        </div>
       </div>
-      <Image
-        src={Card1}
-        className="flex-1 bg-slate-500 h-[90vh]"
-        alt="Card Image"
-      />
     </motion.div>
   );
 }

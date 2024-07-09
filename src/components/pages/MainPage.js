@@ -18,7 +18,7 @@ function MainPage() {
   };
   return (
     <menuContaxt.Provider value={{ menuOpen, menuChange }}>
-      <div className="overflow-hidden">
+      <div className=" ">
         {/* <Hero />
         <Part2 />
         <Main3 />
