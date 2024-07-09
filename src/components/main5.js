@@ -22,7 +22,7 @@ function Part5() {
           <h1 className="text-primaryPink text-[1.3rem] mt-[1.6rem]">
             ADWEEK <span className="font-bold">AGENCY SPOTLIGHT</span>
           </h1>
-          <Button text={"About us"} />
+          <Button text={"About us"} pink={true} />
         </div>
         <div className=" w-[45%] ml-32  inline    absolute    h-[120vh]">
           <Image
