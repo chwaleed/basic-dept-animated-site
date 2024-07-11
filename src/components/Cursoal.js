@@ -89,7 +89,7 @@ function Cursoal() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.4 }}
-      className="bg-priamryDark absolute top-0  z-40  overflow-x-hidden font-FoMed h-screen w-screen"
+      className="bg-priamryDark  top-0 fixed  z-40  overflow-x-hidden font-FoMed h-screen w-screen"
     >
       <div className="flex px-[6.2rem]  text-primaryPink py-[3.5rem]   justify-between ">
         <div className="flex  before:content-[''] before:w-[0.8rem] before:h-[0.8rem] before:rounded-[50%] before:mt-1  before:bg-primaryPink text-[1rem] ">

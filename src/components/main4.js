@@ -72,7 +72,7 @@ function Part4() {
           opts={{
             align: "start",
           }}
-          className="overflow-x-visible cursor-non mb-24 mt-[8rem] "
+          className="overflow-x-visible cursor-none mb-24 mt-[8rem] "
         >
           <CarouselContent className="  gap-40 mr-32">
             {CarouselText.map((item, index) => (
@@ -100,7 +100,6 @@ function Part4() {
                       >
                         here
                       </a>
-                      .
                     </p>
                   </div>
                 </div>
@@ -123,7 +122,7 @@ function Part4() {
           }
           className={` ${
             linkHover ? " opacity-50 " : ""
-          } absolute  bg-primaryPink z-50 pointer-events-none  rounded-[50%] w-[9rem] h-[9rem]  text-priamryDark font-FoMed font-semibold flex justify-center items-center`}
+          } absolute  bg-primaryPink z-30 pointer-events-none  rounded-[50%] w-[9rem] h-[9rem]  text-priamryDark font-FoMed font-semibold flex justify-center items-center`}
         >
           {linkHover ? "" : "DRAG"}
         </div>
