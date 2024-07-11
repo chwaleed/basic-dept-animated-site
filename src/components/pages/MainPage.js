@@ -14,19 +14,23 @@ function MenuProvider() {}
 
 function MainPage() {
   const [menuOpen, setOpenMenu] = useState(false);
-  // const [inView, setInView] = useState(false);
+  // const [heroInView, setHero] = useState(false);
   const ref = useRef(null);
+  const ref2 = useRef(null);
 
   const isInView = useInView(ref, {
     margin: "-50%",
   });
-
+  const heroInView = useInView(ref2);
+  console.log(heroInView);
   const menuChange = () => {
     setOpenMenu(!menuOpen);
   };
 
   return (
-    <menuContaxt.Provider value={{ menuOpen, menuChange, isInView }}>
+    <menuContaxt.Provider
+      value={{ menuOpen, menuChange, isInView, heroInView }}
+    >
       <motion.div
         className=" animated-background overflow-clip "
         initial={{ backgroundColor: "#f4f4f4" }}
@@ -37,7 +41,9 @@ function MainPage() {
         }
         transition={{ duration: 0.5 }} // Add a smooth transition
       >
-        <Hero />
+        <section ref={ref2}>
+          <Hero />
+        </section>
         <Part2 />
         <Main3 />
         <Part4 />

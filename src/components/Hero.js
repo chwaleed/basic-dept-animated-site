@@ -1,14 +1,17 @@
 "use client";
 import React, { useEffect, useState, useContext } from "react";
 import { menuContaxt } from "./pages/MainPage";
-const navBar = ["work", "about", "news", "thinking", "careers", "contact"];
 import Cursoal from "./Cursoal";
+
+const navBar = ["work", "about", "news", "thinking", "careers", "contact"];
+
 function Hero() {
   const [mouseX, setMouseX] = useState(0);
   const [mouseY, setMouseY] = useState(0);
   const [leaveScreen, setLeaveScreen] = useState(true);
   const [openMenu, setOpenMenu] = useState(false);
-  const { menuChange, menuOpen } = useContext(menuContaxt);
+  const { menuChange, menuOpen, heroInView, isInView } =
+    useContext(menuContaxt);
 
   useEffect(() => {
     setMouseX(window.innerWidth / 2);
@@ -24,13 +27,21 @@ function Hero() {
   }, [leaveScreen]);
 
   return (
-    <div className=" relative h-screen w-screen overflow-hidden ">
-      <div>
-        <div className="fixed px-24 py-14   flex items-center justify-between w-full z-10">
-          <h1 className="font-FoBold text-white  font-bold text-[2rem] ">
-            BASIC/DEPT
-          </h1>
-          <ul className="font-FoMed text-[1.1rem] text-white  flex gap-24">
+    <div
+      className={` relative ${
+        isInView
+          ? "bg-priamryDark text-[#f4f4f4]"
+          : "bg-[#f4f4f4] text-priamryDark"
+      }   h-screen w-screen overflow-hidden `}
+    >
+      <div className="bg-inherit">
+        <div
+          className={`fixed px-24 py-14  animated-background  flex items-center ${
+            heroInView ? "text-white" : "bg-inherit"
+          } justify-between w-full z-50`}
+        >
+          <h1 className="font-FoBold   font-bold text-[2rem] ">BASIC/DEPT</h1>
+          <ul className="font-FoMed text-[1.1rem]   flex gap-24">
             {navBar.map((item) => (
               <a
                 key={item}
