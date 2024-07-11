@@ -9,7 +9,7 @@ function Part5() {
   const isInView = useInView(ref, { once: true, amount: 0.6 }); // 60% in view
 
   return (
-    <motion.div className=" bg-priamryDark   py-[2rem] mb-[50vh]">
+    <motion.div className="   py-[2rem] mb-[50vh]">
       <div className=" px-[5%]    mx-auto relative   h-[120vh] ">
         <div className=" sticky  top-[7rem] inline-block">
           <h1 className="text-[8rem] text-primaryPink  leading-[100%]  font-bold ">

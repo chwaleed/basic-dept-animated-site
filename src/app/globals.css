@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
+/* body {
   --backgroundMoving: url("../assets/noice.png");
   --backgroundRepeat: repeat;
   --backgroundSize: 120px;
@@ -15,7 +15,7 @@ body {
   background-attachment: var(--backgroundAttachment);
   background-color: var(--backgroundColor);
   animation: grain 8s steps(10) infinite;
-}
+} */
 
 .animated-background {
   background-image: url("../assets/noice.png");
