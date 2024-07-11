@@ -14,20 +14,19 @@ function MenuProvider() {}
 
 function MainPage() {
   const [menuOpen, setOpenMenu] = useState(false);
-  const [inView, setInView] = useState(false);
+  // const [inView, setInView] = useState(false);
   const ref = useRef(null);
 
   const isInView = useInView(ref, {
-    margin: "-50% 0px -10% ",
+    margin: "-50%",
   });
-  // console.log(isInView);
 
   const menuChange = () => {
     setOpenMenu(!menuOpen);
   };
 
   return (
-    <menuContaxt.Provider value={{ menuOpen, menuChange }}>
+    <menuContaxt.Provider value={{ menuOpen, menuChange, isInView }}>
       <motion.div
         className=" animated-background overflow-clip "
         initial={{ backgroundColor: "#f4f4f4" }}

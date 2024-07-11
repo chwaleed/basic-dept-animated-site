@@ -1,18 +1,22 @@
-import React, { useRef } from "react";
+import React, { useRef, useContext } from "react";
 import { motion, useInView } from "framer-motion";
 import Card1 from "@/assets/Card1.webp";
 import Image from "next/image";
 import Button from "./Button";
+import { menuContaxt } from "./pages/MainPage";
 
 function Part5() {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.6 }); // 60% in view
-
+  const { isInView } = useContext(menuContaxt);
   return (
-    <motion.div className="   py-[2rem] mb-[50vh]">
+    <div className="   py-[2rem] mb-[50vh]">
       <div className=" px-[5%]    mx-auto relative   h-[120vh] ">
-        <div className=" sticky  top-[7rem] inline-block">
-          <h1 className="text-[8rem] text-primaryPink  leading-[100%]  font-bold ">
+        <div
+          className={` sticky ${
+            isInView ? "text-primaryPink" : " text-priamryDark"
+          }  top-[7rem] inline-block`}
+        >
+          <h1 className="text-[8rem]   leading-[100%]  font-bold ">
             BASIC/DEPT® <br />
             HELPS <br />
             BRANDS ●<br />
@@ -35,7 +39,7 @@ function Part5() {
           />
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
