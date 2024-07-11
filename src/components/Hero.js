@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState, useContext } from "react";
 import { menuContaxt } from "./pages/MainPage";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import Cursoal from "./Cursoal";
 
 const navBar = ["work", "about", "news", "thinking", "careers", "contact"];
@@ -59,54 +59,56 @@ function Hero() {
     >
       <div className="bg-inherit">
         <AnimatePresence>
-          <nav className="bg-inherit">
-            {showNav && (
-              <div
-                className={`fixed px-24 py-14   transition-all  flex items-center ${
-                  heroInView
-                    ? "text-white bg-transparent"
-                    : "animated-background bg-inherit"
-                } justify-between w-full z-30`}
-              >
-                <h1 className="font-FoBold   font-bold text-[2rem] ">
-                  BASIC/DEPT
-                </h1>
-                <ul className="font-FoMed text-[1.1rem]   flex gap-24">
-                  {navBar.map((item) => (
-                    <a
-                      key={item}
-                      className={`uppercase relative before:origin-right hover:before:origin-left before:scale-0  before:absolute  before:content-['']
+          {showNav && (
+            <motion.div
+              className={`fixed px-24 py-14   transition-all  flex items-center ${
+                heroInView
+                  ? "text-white bg-transparent"
+                  : "animated-background bg-inherit"
+              } justify-between w-full z-30`}
+              initial={{ top: "-100%" }}
+              animate={{ top: "0" }}
+              exit={{ top: "-100%" }}
+              transition={{ duration: 0.1, ease: "linear" }}
+            >
+              <h1 className="font-FoBold   font-bold text-[2rem] ">
+                BASIC/DEPT
+              </h1>
+              <ul className="font-FoMed text-[1.1rem]   flex gap-24">
+                {navBar.map((item) => (
+                  <a
+                    key={item}
+                    className={`uppercase relative before:origin-right hover:before:origin-left before:scale-0  before:absolute  before:content-['']
                     before:h-[2px] before:bg-white before:bottom-[3px] before:w-full before:transition before:ease-in-out
                      hover:before:scale-100 before:duration-[0.8s]
                     `}
-                    >
-                      {item}{" "}
-                    </a>
-                  ))}
-                </ul>
-                <svg onClick={menuChange} className="h-[3rem]  w-[3rem] ">
-                  <path
-                    d="M4 12h36"
-                    stroke="#ffffff"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                  <path
-                    d="M4 24h36"
-                    stroke="#ffffff"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                  <path
-                    d="M4 36h36"
-                    stroke="#ffffff"
-                    strokeWidth="2"
-                    fill="none"
-                  />
-                </svg>
-              </div>
-            )}
-          </nav>
+                  >
+                    {item}{" "}
+                  </a>
+                ))}
+              </ul>
+              <svg onClick={menuChange} className="h-[3rem]  w-[3rem] ">
+                <path
+                  d="M4 12h36"
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  fill="none"
+                />
+                <path
+                  d="M4 24h36"
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  fill="none"
+                />
+                <path
+                  d="M4 36h36"
+                  stroke="#ffffff"
+                  strokeWidth="2"
+                  fill="none"
+                />
+              </svg>
+            </motion.div>
+          )}
         </AnimatePresence>
 
         <div
