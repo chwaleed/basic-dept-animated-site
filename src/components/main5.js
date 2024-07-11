@@ -27,7 +27,7 @@ function Part5() {
             ADWEEK <span className="font-bold">AGENCY SPOTLIGHT</span>
           </h1>
 
-          <Button text={"About us"} pink={true} extra={"mt-[2rem]"} />
+          <Button text={"About us"} pink={true} />
         </div>
         <div className=" w-[45%] ml-32  inline    absolute    h-[120vh]">
           <Image

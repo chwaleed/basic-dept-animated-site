@@ -13,6 +13,19 @@ function Hero() {
   const { menuChange, menuOpen, heroInView, isInView } =
     useContext(menuContaxt);
 
+  const [scrollPosition, setScrollPosition] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.pageYOffset);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Logic for navbar visibility
+  const showNavbar = scrollPosition < 100 || heroInView;
+
   useEffect(() => {
     setMouseX(window.innerWidth / 2);
     setMouseY(window.innerHeight / 2);
@@ -35,31 +48,33 @@ function Hero() {
       }   h-screen w-screen overflow-hidden `}
     >
       <div className="bg-inherit">
-        <div
-          className={`fixed px-24 py-14  animated-background  flex items-center ${
-            heroInView ? "text-white" : "bg-inherit"
-          } justify-between w-full z-50`}
-        >
-          <h1 className="font-FoBold   font-bold text-[2rem] ">BASIC/DEPT</h1>
-          <ul className="font-FoMed text-[1.1rem]   flex gap-24">
-            {navBar.map((item) => (
-              <a
-                key={item}
-                className={`uppercase relative before:origin-right hover:before:origin-left before:scale-0  before:absolute  before:content-['']
+        {showNavbar && (
+          <div
+            className={`fixed px-24 py-14  animated-background  flex items-center ${
+              heroInView ? "text-white" : "bg-inherit"
+            } justify-between w-full z-50`}
+          >
+            <h1 className="font-FoBold   font-bold text-[2rem] ">BASIC/DEPT</h1>
+            <ul className="font-FoMed text-[1.1rem]   flex gap-24">
+              {navBar.map((item) => (
+                <a
+                  key={item}
+                  className={`uppercase relative before:origin-right hover:before:origin-left before:scale-0  before:absolute  before:content-['']
                     before:h-[2px] before:bg-white before:bottom-[3px] before:w-full before:transition before:ease-in-out
                      hover:before:scale-100 before:duration-[0.8s]
                     `}
-              >
-                {item}{" "}
-              </a>
-            ))}
-          </ul>
-          <svg onClick={menuChange} className="h-[3rem]  w-[3rem] ">
-            <path d="M4 12h36" stroke="#ffffff" strokeWidth="2" fill="none" />
-            <path d="M4 24h36" stroke="#ffffff" strokeWidth="2" fill="none" />
-            <path d="M4 36h36" stroke="#ffffff" strokeWidth="2" fill="none" />
-          </svg>
-        </div>
+                >
+                  {item}{" "}
+                </a>
+              ))}
+            </ul>
+            <svg onClick={menuChange} className="h-[3rem]  w-[3rem] ">
+              <path d="M4 12h36" stroke="#ffffff" strokeWidth="2" fill="none" />
+              <path d="M4 24h36" stroke="#ffffff" strokeWidth="2" fill="none" />
+              <path d="M4 36h36" stroke="#ffffff" strokeWidth="2" fill="none" />
+            </svg>
+          </div>
+        )}
         <div
           onMouseEnter={() => setLeaveScreen(false)}
           onMouseLeave={() => setLeaveScreen(true)}

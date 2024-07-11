@@ -35,7 +35,7 @@ function Main3() {
             products, services, and eCommerce experiences that turn cultural
             values into company value.
           </p>
-          <Button text={"See the Work"} />
+          <Button text={"See the Work"} pink={false} />
         </div>
         <div className="flex-1 ">
           <h1 className="text-[18rem] overflow-hidden px-0 py-0 mt-[-6rem]   text-right text-priamryDark flex-1 font-bold">
