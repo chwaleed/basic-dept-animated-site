@@ -9,34 +9,34 @@ function Part5() {
   const ref = useRef(null);
   const { isInView } = useContext(menuContaxt);
   return (
-    <div className="   py-[2rem] mb-[50vh]">
-      <div className=" px-[5%]    mx-auto relative   h-[120vh] ">
-        <div
-          className={` sticky ${
-            isInView ? "text-primaryPink" : " text-priamryDark"
-          }  top-[7rem] inline-block`}
-        >
-          <h1 className="text-[8rem]   leading-[100%]  font-bold ">
-            BASIC/DEPT® <br />
-            HELPS <br />
-            BRANDS ●<br />
-            CONNECT W/ <br />
-            CULTURE
-          </h1>
-          <h1 className="text-primaryPink mb-[4rem] text-[1.3rem] mt-[1.6rem]">
-            ADWEEK <span className="font-bold">AGENCY SPOTLIGHT</span>
-          </h1>
+    <div className=" py-[2rem] mb-[50vh]">
+      <div className=" px-[5%] flex   mx-auto relative    ">
+        <div className="flex-1">
+          <div
+            className={` sticky ${
+              isInView ? "text-primaryPink" : " text-priamryDark"
+            }  top-[7rem] inline-block`}
+          >
+            <h1 className="  text-[6vw]   leading-[100%]  font-bold ">
+              BASIC/DEPT® <br />
+              HELPS <br />
+              BRANDS ●<br />
+              CONNECT W/ <br />
+              CULTURE
+            </h1>
+            <h1 className="text-primaryPink mb-[4rem] text-[1.3rem] mt-[1.6rem]">
+              ADWEEK <span className="font-bold">AGENCY SPOTLIGHT</span>
+            </h1>
 
-          <Button text={"About us"} pink={true} />
+            <Button text={"About us"} pink={true} />
+          </div>
         </div>
-        <div className=" w-[45%] ml-32  inline    absolute    h-[120vh]">
-          <Image
-            src={Card1}
-            alt="Card Image"
-            layout="fill"
-            objectFit="cover"
-            className="h-full w-full"
-          />
+
+        <div className=" flex-1 ml-32  inline">
+          <video autoPlay loop muted>
+            <source src="/3rd.mp4" type="video/mp4" />
+            Your Browser does not support this video
+          </video>
         </div>
       </div>
     </div>
