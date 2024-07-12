@@ -22,7 +22,6 @@ function MainPage() {
     margin: "-50%",
   });
   const heroInView = useInView(ref2);
-  console.log(heroInView);
   const menuChange = () => {
     setOpenMenu(!menuOpen);
   };

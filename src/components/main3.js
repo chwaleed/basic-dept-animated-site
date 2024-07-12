@@ -22,7 +22,7 @@ function Main3() {
       title: "Google Store",
       text: "An eCommerce experience helping Google bring its hardware to people across the globe",
       path: Card2,
-      type: "image",
+      type: "video",
     },
   ];
 
