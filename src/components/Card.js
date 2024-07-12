@@ -5,10 +5,16 @@ import Image from "next/image";
 function Card(props) {
   return (
     <div className="group  flex-1    inline-block">
-      <div className=" flex w-[38rem]   overflow-hidden relative">
+      <div className=" flex   overflow-hidden relative">
         {props.type == "video" ? (
-          <video className=" relative z-20 flex-1  transition-all  scale-105 group-hover:scale-100">
+          <video
+            className=" relative z-20 flex-1  transition-all  scale-105 group-hover:scale-100"
+            autoPlay
+            loop
+            muted
+          >
             <source src="/CardVideo.mp4" type="video/mp4" />
+            Your Browser does not support this video
           </video>
         ) : (
           <Image

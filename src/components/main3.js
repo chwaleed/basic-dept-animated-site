@@ -43,7 +43,7 @@ function Main3() {
           </h1>
         </div>
       </div>
-      <div className="flex px-[5%]  mt-28">
+      <div className="flex px-[5%] gap-5  mt-28">
         {cardContent.map((item, index) => (
           <Card
             key={index}
