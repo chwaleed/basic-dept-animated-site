@@ -1,19 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import BackgroundVideo from "next-video/background-video";
-import video from "../../videos/CardVideo.mp4";
 
 function Card(props) {
   return (
-    <div className="group  flex-1  inline-block">
-      <div className="  w-[38rem]   overflow-hidden relative">
+    <div className="group  flex-1    inline-block">
+      <div className=" flex w-[38rem]   overflow-hidden relative">
         {props.type == "video" ? (
-          <BackgroundVideo src={video}> </BackgroundVideo>
+          <video className=" relative z-20 flex-1  transition-all  scale-105 group-hover:scale-100">
+            <source src="/CardVideo.mp4" type="video/mp4" />
+          </video>
         ) : (
           <Image
             src={props.path}
-            className=" relative z-20  transition-all  scale-105 group-hover:scale-100"
+            className=" relative z-20 flex-1  transition-all  scale-105 group-hover:scale-100"
             alt="Card Image"
           />
         )}
